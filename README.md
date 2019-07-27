@@ -1,4 +1,4 @@
-# Code.Fun.DO 2019
+# Code.Fun.Do 2019
 ## Team Members 
 * Indraneel Ghosh - [ighosh98](https://github.com/ighosh98)
 * Akshay Mittal - [Ak-shay](https://github.com/Ak-shay)
