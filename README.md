@@ -6,8 +6,8 @@
 
 # Proof of Concept
 ## Problem Statement
-Demonstrate how Azure Blockchain can be used to make Elections, referendum, and polls more secure, reliable, and transparent.<br />
-Given: Indian Election Datasets
+Demonstrate how Azure Blockchain can be used to make Elections and other forms of polling more secure, reliable, and transparent.<br />
+Given: [Indian Election Datasets](https://data.gov.in/catalogs?search_api_views_fulltext=election&sort_by=search_api_relevance&sort_order=DESC&items_per_page=9)
 ## Typical Challenges in Indian Elections
 - Tools for authentication: 
   - Aadhar Card:As it is provided to every citizen of the country, we do not allow other ID verification options like PAN card and driving license etc.
