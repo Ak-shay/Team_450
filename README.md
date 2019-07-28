@@ -1,4 +1,4 @@
-# Code.Fun.Do 2019
+# Team_450 - Code.Fun.Do 2019
 ## Team Members 
 * Indraneel Ghosh - [ighosh98](https://github.com/ighosh98)
 * Akshay Mittal - [Ak-shay](https://github.com/Ak-shay)
@@ -13,8 +13,7 @@ Given: Indian Election Datasets
   - Aadhar Card:As it is provided to every citizen of the country, we do not allow other ID verification options like PAN card and driving license etc.
   - Voter ID Card(Provided to every citizen of India who has the right ot vote in a particular region)
   - Biometric Authentication
-- Internet Access in all areas: Internet acces may or may not be available in a given location. If net access is not available,
-send a one time use key(Unique hash key corresponding to the Voter ID of the individual [Hash Key would be different from Voter ID] ) for the person after user authentication is completed.
+- Internet Access in all areas: Internet access may or may not be available in a given location. If net access is not available, send a one time use key(Unique hash key corresponding to the Voter ID of the individual [Hash Key would be different from Voter ID] ) for the person after user authentication is completed.
 - Take proper survey of deceased and people who no longer vote in a gven region or have voter I cards made for multiple region and handle these cases.
 - Send a notification to the candidate when his vote is being cast. (Reducing the chance of a fraudulent casting of vote)
 - Ensure that one person can cast his vote only once.
@@ -31,11 +30,11 @@ send a one time use key(Unique hash key corresponding to the Voter ID of the ind
 2. Admin accepts the applications for election Candidates and adds them to a "smart contract" on Azure Blockchain.
 3. The candidates uploads the necessary details like manifesto, criminal records, personal vaulation details and any other necessary information.
 4. If a person turns 18 and is eligible for voting, he gets registered automatically,once all of his information is verfied(Aadhar Card details).Once registered, a voter ID card is also created for the user.
-5. Voters can submit their Aadhar Card and Voter ID Card as proof of Authentification. We would use mmulti-level authentication.  The administrator would then verify those details by cross referencing with the details available with him. If the voter ID details of an individual is verified, admin would then verify the Aadhar Card details by crross referencing from the available databse. If authentication is successful Voters are given a unique hash key which allows them to vote. 
+5. Voters can submit their Aadhar Card and Voter ID Card as proof of Authentification. We would use multi-level authentication.  The administrator would then verify those details by cross referencing with the details available with him. If the voter ID details of an individual is verified, admin would then verify the Aadhar Card details by cross referencing from the available database. If authentication is successful, voters are given a unique one-time key which allows them to vote. 
 6. Using the unique key the voter casts his vote, the details of which are then fed into the blockchain.
-this mechanism ensures that all the data remains protected. Process ends when lifetime of the election is complete.<br/>
+This mechanism ensures that all the data remains protected. Process ends when lifetime of the election is complete.<br/>
 **Note**: We would use an augmented or complete datasets from the following resource for testing purposes:
-[**Open Government Data Platform India**](https://data.gov.in/catalogs?search_api_views_fulltext=election&sort_by=search_api_relevance&sort_order=DESC&items_per_page=9). Hoever, if we are not able to find any required piece of information part of the dataset may also have sections which are created by the developers for testng purposes.
+[**Open Government Data Platform India**](https://data.gov.in/catalogs?search_api_views_fulltext=election&sort_by=search_api_relevance&sort_order=DESC&items_per_page=9). Hoever, if we are not able to find any required piece of information required in our model, part of the dataset may also have sections which are created by the developers.
 # Tech Stack Details
 1. Microsoft Azure Blockchain
 2. Solidity Programing Language(For Formulating Contract)
