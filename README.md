@@ -36,12 +36,13 @@ send a one time use key(Unique hash key corresponding to the Voter ID of the ind
 this mechanism ensures that all the data remains protected. Process ends when lifetime of the election is complete.
 
 # Tech Stack Details
-1. Microsoft Azure Blockchain<br />
-2. Solidity Programing Language(For Formulating Contract) <br />
-3. Python <br />
-4. Django Web Framework(For User Interface) with SQLlite/MySQL database<br />
-5. Visual Studio Code <br />
-6. Github(Version Control) <br />
-7. Microsoft Azure Webservices <br />
+1. Microsoft Azure Blockchain
+2. Solidity Programing Language(For Formulating Contract)
+3. Python
+4. Django Web Framework(For User Interface) with SQLlite/MySQL database
+5. Django Rest Framework
+6. Visual Studio Code
+7. Github(Version Control)
+8. Microsoft Azure Webservices
 ## References
 1. [Research Paper](https://skemman.is/bitstream/1946/31161/1/Research-Paper-BBEVS.pdf)
