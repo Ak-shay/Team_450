@@ -27,8 +27,7 @@ contract Election {
     // A dynamically-sized array of `Candidate` structs.
     Candidate[] public Candidates;
 
-    /*Create a new ballot to choose one of the `CandidateNames`.
-     Pass a pair of lists consisting of party and the name of the candidates at positions i*/
+    /* Pass a pair of lists consisting of party and the name of the candidates at positions i*/
     constructor(bytes32[] memory CandidateNames,bytes32[] memory party) public {
         admin = msg.sender;
         uint i;
