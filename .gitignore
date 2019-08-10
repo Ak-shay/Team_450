@@ -1,4 +1,4 @@
-./dump
+/dump
 *.zip
 *.pyc
 *~
