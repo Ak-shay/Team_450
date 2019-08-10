@@ -1,8 +1,8 @@
-/dump
 *.pyc
 *~
 __pycache__
 myvenv
 db.sqlite3
 /static
+/dump
 .DS_Store
