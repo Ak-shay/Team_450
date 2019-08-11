@@ -6,3 +6,4 @@ db.sqlite3
 /static
 /dump
 .DS_Store
+node_modules

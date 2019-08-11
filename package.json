@@ -1,0 +1,22 @@
+{
+  "name": "team_450",
+  "version": "1.0.0",
+  "description": "Code repository of Team_450 participant of code.fun.do 2019",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ak-shay/Team_450.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ak-shay/Team_450/issues"
+  },
+  "homepage": "https://github.com/Ak-shay/Team_450#readme",
+  "dependencies": {
+    "mongodb": "^3.3.0-beta2"
+  }
+}
