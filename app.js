@@ -7,6 +7,8 @@ mongoClient.connect("mongodb://team450:QBni1KVLaoIor4RfSV3ouCIxquWz37rTA6aQM4Jre
 
 var app = express();
 
+app.set('view engine', 'ejs');
+
 app.get('/', function(req, res){
   res.send("hello World");
 })
