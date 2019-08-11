@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const CandidateSchema = new Schema({
+const AdminSchema = new Schema({
     name: {
         type: String,
         required: [true, "Name of the candidate  is required"]
@@ -17,16 +17,9 @@ const CandidateSchema = new Schema({
     age: {
         type: Number,
         required: [true, "age is required"]
-    },
-    vote_count: {
-        type: Number,
-        default: 0
     }
 });
 
-var Candidate = mongoose.model('Candidate', CandidateSchema);
+mongoose.model('Admin', AdminSchema);
 
-module.exports = {
-    Candidate: Candidate,
-    CandidateSchema: CandidateSchema
-};
+module.exports = Admin;
