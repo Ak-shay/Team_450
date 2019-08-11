@@ -18,11 +18,9 @@ contract Election {
     }
 
     address public admin;
-
-
     // State variable that stores a `Voter` struct for each possible address.
     mapping(address => Voter) public voters; 
-    //address corresponding to VoterID. Since it is unique and sensitive we store it in the blockchain 
+//address corresponding to VoterID. Since it is unique and sensitive we store it in the blockchain 
 
     // A dynamically-sized array of 'Candidates'.
     Candidate[] public Candidates;
@@ -36,7 +34,7 @@ contract Election {
             Candidates.push(Candidate({
                 name: CandidateNames[i],
                 voteCount: 0,
-                party:party[i],
+                party:party[i]
             }));
              i++;
         }
@@ -58,13 +56,13 @@ contract Election {
     }
 
     /// Give your vote (including votes VoterIDd to you) to Candidate 'Candidates[Candidate].name'.
-    function vote(uint Candidate) public {
+    function vote(uint candidate) public {
         Voter storage sender = voters[msg.sender];
         require(sender.weight != 0, "Does not have right to vote.");
         require(!sender.voted, "You have already voted.");
         sender.voted = true;
-        sender.vote = Candidate;
-        Candidates[Candidate].voteCount += sender.weight;//always 1
+        sender.vote = candidate;
+        Candidates[candidate].voteCount += sender.weight;//always 1
     }
 
 //finds the winning candidate
