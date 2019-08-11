@@ -19,12 +19,12 @@ contract Election {
 
     address public admin;
 
-    // This declares a state variable that
-    // stores a `Voter` struct for each possible address.
-    mapping(address => Voter) public voters; 
-    //uint corresponding to VoterID. SInce it is unique and sensitive we store it in the blockchain 
 
-    // A dynamically-sized array of `Candidate` structs.
+    // State variable that stores a `Voter` struct for each possible address.
+    mapping(address => Voter) public voters; 
+    //address corresponding to VoterID. Since it is unique and sensitive we store it in the blockchain 
+
+    // A dynamically-sized array of 'Candidates'.
     Candidate[] public Candidates;
 
     /* Pass a pair of lists consisting of party and the name of the candidates at positions i*/
@@ -42,8 +42,7 @@ contract Election {
         }
     }
 
-    // Give `voter` the right to vote on the Election.
-    // May only be called by `admin`.
+    // Give 'voter' the right to vote on the Election.(Must only be called by 'admin'.)
     function giveRightToVote(address voter) public {
         require(
             !voters[voter].voted,
@@ -58,18 +57,13 @@ contract Election {
         voters[voter].weight = 1;
     }
 
-    /// Give your vote (including votes VoterIDd to you)
-    /// to Candidate `Candidates[Candidate].name`.
+    /// Give your vote (including votes VoterIDd to you) to Candidate 'Candidates[Candidate].name'.
     function vote(uint Candidate) public {
         Voter storage sender = voters[msg.sender];
         require(sender.weight != 0, "Does not have right to vote.");
         require(!sender.voted, "You have already voted.");
         sender.voted = true;
         sender.vote = Candidate;
-
-        // If `Candidate` is out of the range of the array,
-        // this will throw automatically and revert all
-        // changes.
         Candidates[Candidate].voteCount += sender.weight;//always 1
     }
 
