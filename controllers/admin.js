@@ -11,8 +11,9 @@ module.exports = function(app) {
     });
 
     app.post('/admin/voterverify/:id', function(req, res){
-        console.log(req.body);
-        var voter = Voter.findOneAndUpdate({voter_id: req.params.id}, req.body, {new: true});
-        console.log(voter);
+        Voter.findOneAndUpdate({voter_id: req.params.id}, {can_vote:true}, function(err, voter){
+            if (err) throw err;
+            console.log('updated' + voter);
+        });
     });
 };

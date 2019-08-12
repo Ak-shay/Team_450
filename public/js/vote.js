@@ -11,9 +11,6 @@ $(document).ready(function(){
            type: 'POST',
            url: '/vote',
            data: vote,
-           success: function(data){
-               location.reload();
-           }
        });
     });
 

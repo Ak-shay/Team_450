@@ -9,7 +9,7 @@ $(document).ready(function(){
                 can_vote: true
             },
             success: function(data){
-                location.reload()
+                $(this).hide();
             }
         });
     });
