@@ -16,6 +16,7 @@
                                 <th scope="col">#</th>
                                 <th scope="col">Name</th>
                                 <th scope="col">VoterID</th>
+                                <th scope="col">Constituency</th>
                                 <th scope="col">Has the voter voted?</th>
                             </tr>
                         </thead>
@@ -29,13 +30,13 @@
                                         <%= voters[i].name%>
                                     </td>
                                     <td>
-                                        <%= voters[i].VoterID.toString().toUpperCase()%>
+                                        <%= voters[i].voter_id%>
                                     </td>
                                     <td>
                                         <%= voters[i].constituency%>
                                     </td>
                                     <td>
-                                        <%= voters[i].voted.toString().toUpperCase()%>
+                                        <%= voters[i].voted %>
                                     </td>
                                 </tr>
                                 <% }%>
