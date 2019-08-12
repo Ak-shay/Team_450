@@ -10,8 +10,8 @@ const app = express();
 
 // connecting to db
 // mongoose.connect("mongodb://team450:QBni1KVLaoIor4RfSV3ouCIxquWz37rTA6aQM4Jre0r8gBUukJw9mzulNR09XFJ6cK0zjrohiPkiZmGYUY0TAw%3D%3D@team450.documents.azure.com:10255/?ssl=true", { useNewUrlParser: false });
-// mongodb+srv://election:election@cluster0-xgqvg.mongodb.net/test?retryWrites=true&w=majority
-mongoose.connect('mongodb://localhost/election', {useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true}, function(err){
+mongoose.connect('mongodb+srv://election:election@cluster0-xgqvg.mongodb.net/test?retryWrites=true&w=majority', {useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true}, function(err){
+// mongoose.connect('mongodb://localhost/election', {useNewUrlParser: true, useFindAndModify: false, useCreateIndex: true}, function(err){
   if (err) throw err;
   console.log("db connected");
 }); // for testing
