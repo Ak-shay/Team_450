@@ -38,11 +38,11 @@ This mechanism ensures that all the data remains protected. Process ends when li
 # Tech Stack Details
 1. Microsoft Azure Blockchain
 2. Solidity Programing Language(For Formulating Contract)
-3. Python
-4. Django Web Framework(For User Interface) with SQLlite/MySQL database
-5. Django Rest Framework
-6. Visual Studio Code
-7. Github(Version Control)
-8. Microsoft Azure Webservices
+3. Node
+4. MongoDB
+5. Visual Studio Code
+6. Github(Version Control)
+7. Microsoft Azure Webservices
+
 ## References
 1. [Research Paper](https://skemman.is/bitstream/1946/31161/1/Research-Paper-BBEVS.pdf)
