@@ -7,7 +7,13 @@ module.exports = function(app) {
 
     app.post('/candidate', function(req, res){
         Candidate.create(req.body).then(function(candidate){
-            res.send(candidate);
+            res.render('home');
+        });    
+    });
+
+    app.delete('./candidate/:id', function(req, res){
+        Candidate.findOneAndRemove({_id: req.params.id}, function(candidate){
+            req.send(candidate);
         });
     });
 };

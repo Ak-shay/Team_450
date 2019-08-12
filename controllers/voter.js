@@ -6,7 +6,7 @@ module.exports = function(app){
     });
     app.post('/voter', function(req, res){
         Voter.create(req.body).then(function(voter){
-            res.send(voter);
+            res.render('home');
         });
     });
 };

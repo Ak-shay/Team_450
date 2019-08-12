@@ -22,24 +22,26 @@
                         </thead>
                         <tbody>
                             <% for(var i=0 ; i < voters.length; i++) { %>
-                                <tr onclick="window.location='/admin/verifyvoter/<%= voters[i]._id%>';" style="cursor: pointer;">
-                                    <th scope="row">
-                                        <%= i+1 %>
-                                    </th>
-                                    <td>
-                                        <%= voters[i].name%>
-                                    </td>
-                                    <td>
-                                        <%= voters[i].voter_id%>
-                                    </td>
-                                    <td>
-                                        <%= voters[i].constituency%>
-                                    </td>
-                                    <td>
-                                        <%= voters[i].voted %>
-                                    </td>
-                                </tr>
-                                <% }%>
+                                <% if (!voters[i].can_vote) { %>
+                                    <tr style="cursor: pointer;">
+                                            <th scope="row">
+                                                <%= i+1 %>
+                                            </th>
+                                            <td>
+                                                <%= voters[i].name%>
+                                            </td>
+                                            <td id="voter_id">
+                                                <%= voters[i].voter_id%>
+                                            </td>
+                                            <td>
+                                                <%= voters[i].constituency%>
+                                            </td>
+                                            <td>
+                                                <%= voters[i].voted %>
+                                            </td>
+                                        </tr>
+                                <% } %>
+                            <% }%>
                         </tbody>
                     </table>
                 </div>
@@ -79,6 +81,7 @@
             </div>
         </div>
     </div>
+    <script src="/js/admin.js"></script>
     </body>
 
     </html>

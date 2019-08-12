@@ -29,7 +29,9 @@ const VoterSchema = new Schema({
         type: Boolean,
         default: false 
     },
-    vote_to: CandidateSchema
+    vote_to: {
+        type: CandidateSchema
+    }
 });
 
 const Voter = mongoose.model('Voter', VoterSchema);
