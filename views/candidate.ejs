@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>CANDIDATE</title>
-</head>
-<body>
+<% include header.ejs %>
     <form method="POST">
         <label for="name">NAME: </label>
-        <input type="text" required name="name">
+        <input type="text" required name="name" id="name">
         <label for="age">AGE: </label>
-        <input type="text" required name="age">
+        <input type="text" required name="age" id="age">
         <label for="adhaar">ADHAAR NO.: </label>
-        <input type="text" required name="adhaar">
+        <input type="text" required name="adhaar" id="adhaar">
         <label for="voter_id">VOTER ID: </label>
-        <input type="text" required name="voter_id">
+        <input type="text" required name="voter_id" id="voter_id">
         <input type="submit">
     </form>
 </body>
