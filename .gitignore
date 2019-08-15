@@ -1,2 +1,10 @@
+*.pyc
+*~
+__pycache__
+myvenv
+db.sqlite3
+/static
+/dump
+.DS_Store
 node_modules
-build
+package-lock.json
