@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html>
   <head>
+      <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <title>MetaCoin | Truffle Webpack Demo w/ Frontend</title>
   </head>
   <style>
@@ -10,28 +12,37 @@
     }
   </style>
   <body>
-    <h1>MetaCoin — Example Truffle Dapp</h1>
-    <p>You have <strong class="balance">loading...</strong> META</p>
-
-    <h1>Send MetaCoin</h1>
-
-    <label for="amount">Amount:</label>
-    <input type="text" id="amount" placeholder="e.g. 95" />
-
-    <label for="receiver">To address:</label>
-    <input
-      type="text"
-      id="receiver"
-      placeholder="e.g. 0x93e66d9baea28c17d9fc393b53e3fbdd76899dae"
-    />
-
-    <button onclick="App.sendCoin()">Send MetaCoin</button>
-
-    <p id="status"></p>
-    <p>
-      <strong>Hint:</strong> open the browser developer console to view any
-      errors and warnings.
-    </p>
+    <h1>A simple voting machine</h1>
+    <table class="table-responsive">
+      <thead>
+        <tr>
+          <th>Candidates</th>
+          <th>Votes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Rama</td>
+          <td id="candidate-1"></td>
+        </tr>
+        <tr>
+          <td>Nick</td>
+          <td id="candidate-2"></td>
+        </tr>
+        <tr>
+          <td>Jose</td>
+          <td id="candidate-3"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div>
+      <input type="text" id="candidate">
+      <a href="#" onclick="App.voteForCandidate()" class="btn btn-primary">Vote</a>
+    </div>
+    <script
+    src="https://code.jquery.com/jquery-3.4.1.min.js"
+    integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+    crossorigin="anonymous"></script>
     <script src="index.js"></script>
   </body>
 </html>
