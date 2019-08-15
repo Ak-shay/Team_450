@@ -32,8 +32,8 @@ const App = {
 
     loadCandidatesAndVotes: async function() {
       // The line below loads the totalVotesFor method from the list of methods 
-    // returned by this.voting.methods
-      const { totalVotesFor } = this.voting.methods;
+      // returned by this.ballot.methods
+      const { totalVotesFor } = this.ballot.methods;
       let candidateNames = Object.keys(candidates);
       for (var i = 0; i < candidateNames.length; i++) {
       let name = candidateNames[i];
@@ -47,7 +47,7 @@ const App = {
       $("#msg").html("Vote has been submitted. The vote count will increment as soon as the vote is recorded on the blockchain. Please wait.")
       $("#candidate").val("");
     
-      const { totalVotesFor, voteForCandidate } = this.voting.methods;
+      const { totalVotesFor, voteForCandidate } = this.ballot.methods;
       await voteForCandidate(this.web3.utils.asciiToHex(candidateName)).send({gas: 140000, from: this.account});
       let div_id = candidates[candidateName];
       var count = await totalVotesFor(this.web3.utils.asciiToHex(candidateName)).call();
