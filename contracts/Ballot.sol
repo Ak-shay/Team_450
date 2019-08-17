@@ -8,7 +8,7 @@ contract Ballot {
     struct Voter {
         uint weight; // weight is accumulated by delegation
         bool voted;  // if true, that person already voted
-        address delegate; // person delegated to
+        address voterid; // person delegated to
         uint vote;   // index of the voted Candidate
     }
 
@@ -16,49 +16,33 @@ contract Ballot {
     struct Candidate {
         bytes32 name;   // short name (up to 32 bytes)
         uint voteCount; // number of accumulated votes
+        bytes32 party;
     }
 
     address public admin;
-
-    // This declares a state variable that
-    // stores a `Voter` struct for each possible address.
+// mapping voterID to voter
     mapping(address => Voter) public voters;
 
     // A dynamically-sized array of `Candidate` structs.
     Candidate[] public candidates;
 
     /// Create a new ballot to choose one of `CandidateNames`.
-    constructor(bytes32[] memory candidateNames) public {
+    constructor(bytes32[] memory candidateNames,bytes32[] memory partyName) public {
         admin = msg.sender;
         voters[admin].weight = 1;
 
-        // For each of the provided Candidate names,
-        // create a new Candidate object and add it
-        // to the end of the array.
         for (uint i = 0; i < candidateNames.length; i++) {
-            // `Candidate({...})` creates a temporary
-            // Candidate object and `Candidates.push(...)`
-            // appends it to the end of `Candidates`.
             candidates.push(Candidate({
                 name: candidateNames[i],
-                voteCount: 0
+                voteCount: 0,
+                party: partyName[i]
             }));
         }
     }
 
-    // Give `voter` the right to vote on this ballot.
-    // May only be called by `admin`.
+//Pass in voter ID
     function giveRightToVote(address voter) public {
-        // If the first argument of `require` evaluates
-        // to `false`, execution terminates and all
-        // changes to the state and to Ether balances
-        // are reverted.
-        // This used to consume all gas in old EVM versions, but
-        // not anymore.
-        // It is often a good idea to use `require` to check if
-        // functions are called correctly.
-        // As a second argument, you can also provide an
-        // explanation about what went wrong.
+ 
         require(
             msg.sender == admin,
             "Only admin can give right to vote."
@@ -70,23 +54,27 @@ contract Ballot {
         require(voters[voter].weight == 0);
         voters[voter].weight = 1;
     }
-    /// Give your vote (including votes delegated to you)
-    /// to Candidate `candidates[candidate].name`.
+    
+      function validCandidate(uint candidate) view public returns (bool) {
+    
+	    if(candidate<candidates.length)
+	    {
+	    	return true;
+	    }
+	    return false;
+	}
+	
+//cast your vote for candidate with id 'candidate'
     function vote(uint candidate) public {
         Voter storage sender = voters[msg.sender];
         require(sender.weight != 0, "Has no right to vote");
         require(!sender.voted, "Already voted.");
         sender.voted = true;
         sender.vote = candidate;
-
-        // If `Candidate` is out of the range of the array,
-        // this will throw automatically and revert all
-        // changes.
+        // If `Candidate` is out of the range of the array,this will throw automatically and revert all changes.
         candidates[candidate].voteCount += sender.weight;
     }
 
-    /// @dev Computes the winning Candidate taking all
-    /// previous votes into account.
     function winningCandidate() public view
             returns (uint winningCandidate_)
     {
@@ -95,16 +83,21 @@ contract Ballot {
             if (candidates[p].voteCount > winningVoteCount) {
                 winningVoteCount = candidates[p].voteCount;
                 winningCandidate_ = p;
-            }
         }
+       }
     }
 
-    // Calls winningCandidate() function to get the index
-    // of the winner contained in the Candidates array and then
-    // returns the name of the winner
     function winnerName() public view
             returns (bytes32 winnerName_)
     {
         winnerName_ = candidates[winningCandidate()].name;
     }
+    function winningParty() public view
+            returns (bytes32 winParty_)
+    {
+        winParty_ = candidates[winningCandidate()].party;
+    }
+    function totalVotesFor(uint voter) public view returns(uint) {
+   	 return  candidates[voter].voteCount;
+  }
 }
